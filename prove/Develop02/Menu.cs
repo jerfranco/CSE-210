@@ -40,7 +40,7 @@ public class Menu
                     
                     break;
                 case "3":
-                    List<Entry> journalFind;
+                    journal.journalFind();
                     break;
                 case "4":
                     journal.journalSave();

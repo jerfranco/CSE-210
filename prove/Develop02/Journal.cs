@@ -29,6 +29,14 @@ public class Journal
         string fileName = "";
         Console.WriteLine("What do you want to name the file? ");
         fileName = Console.ReadLine();
+        if (File.Exists(fileName)){
+            Console.WriteLine("It exists.");
+            var appendable = new StreamWriter("./"+fileName, true);
+            foreach(var entry in entries){
+                appendable.WriteLine($"Date: {dateText} - Prompt: {entry._prompt}");
+                appendable.WriteLine($"{entry._input}\n");
+            }
+        }
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
             foreach(Entry entry in entries)
@@ -44,19 +52,24 @@ public class Journal
         Console.WriteLine("What file do you want to load? ");
         string findJournal = Console.ReadLine();
     }*/
-    public static List<Entry> journalfind()
+    public void journalFind()
     {
-                    List<Entry> entry = new List<Entry>();
                     Console.WriteLine("What file do you want to load? ");
                     //string findJournal = Console.ReadLine();
                     string fileName = "journal.txt";
                     string [] lines = System.IO.File.ReadAllLines(fileName);
+                    var pieces = new List<string>();
                     foreach (string line in lines)
                     {
-                        Console.WriteLine(line);
+                        if(line.Length != 0){
+                            if(pieces.Count == 2){
+                                var newEntry = new Entry(pieces[0],pieces[1]);
+                                entries.Add(newEntry);
+                                pieces.Clear();
+                            }
+                            pieces.Add(line);
+                        }
                     }
-                    
-                    return entry;
                     // foreach (Entry _entry in entries)
                     // {
                     //     foreach (string line in lines)
