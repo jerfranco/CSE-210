@@ -14,7 +14,7 @@ public class Board
     {
         foreach (Quote quote in _quotes)
         {
-            NicePrint(quote.GetQuote());
+            NicePrint(quote.GetQuote());    
         }
     }
 
