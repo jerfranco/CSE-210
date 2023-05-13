@@ -38,8 +38,6 @@ public class Journal
         }
         }
     }
-
-
     public void journalFind()
     {
                     Console.WriteLine("What file do you want to load? ");
