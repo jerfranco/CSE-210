@@ -1,7 +1,5 @@
 
 public class Prompt
-
-
 {
         private string _prompt = "";
         public string quest = "";
@@ -21,11 +19,4 @@ public class Prompt
             quest = questions[num];
             return quest;
         }
-        
-    
-    
-    
-
-    
-
 }
