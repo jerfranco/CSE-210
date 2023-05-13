@@ -22,16 +22,11 @@ public class Menu
             switch (response)
             {
                 case "1":
-                    //creating a new prompt
                     Prompt newPrompt = new Prompt();
-                    //getting a random prompt for the Prompt
                     string prompt = newPrompt.GetRandomPrompt();
                     Console.WriteLine(prompt);
-                    //ask user for their input
                     Console.Write("> ");
-                    //storing their answer in the variable answer
                     string answer = Console.ReadLine();
-                    //storing both the prompt and the answer in the entry(question, their input)
                     Entry newEntry = new Entry(prompt, answer);
                     journal.entryInput(newEntry);
                     break;
