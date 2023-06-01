@@ -1,0 +1,20 @@
+public class Loanable
+{
+
+    private bool _isCheckedIn = true;
+
+    public void CheckOut()
+    {
+        _isCheckedIn = false;
+    }
+    public void CheckIn()
+    {
+        _isCheckedIn = true;
+    }
+    //virtual command overrides the Display
+    public virtual void Display()
+    {
+        Console.WriteLine($"Available: {_isCheckedIn}");
+    }
+
+}
