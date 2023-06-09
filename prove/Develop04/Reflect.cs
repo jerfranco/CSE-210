@@ -1,11 +1,30 @@
-public class Reflect
+public class Reflect : Activity
 {
-    string question = "";
-    string question2 = "";
     List<string> _prompt = new List<string>();
     List<string> _prompt1 = new List<string>();
-    public Reflect()
+    public void GetRandomPrompt1()
     {
+        string question;
+        Random randomGenerator = new Random();
+        int num = randomGenerator.Next(0,_prompt.Count);
+        question = _prompt[num];
+        Console.WriteLine("Consider the following prompt:");
+        Console.WriteLine($"\n--- {question} ---");
+        Console.WriteLine("\nWhen you have something in mind, press enter to continue.");
+        Console.ReadLine();
+    }
+    public void GetRandomPrompt2()
+    {
+        string question2;
+        Random r = new Random();
+        int num1 = r.Next(0,_prompt1.Count);
+        question2 = _prompt1[num1];
+        Console.WriteLine($"> {question2}");
+    }
+
+    public Reflect(string type, string desc,  string end) : base(type, end, desc)
+    {
+        _desc = desc;
         _prompt.Add("Think of a time when you stood up for someone else.");
         _prompt.Add("Think of a time when you did something really difficult.");
         _prompt.Add("Think of a time when you helped someone in need.");
@@ -21,31 +40,18 @@ public class Reflect
         _prompt1.Add("What did you learn about yoruself through this experience? ");
         _prompt1.Add("How can you keep this experience in mind in the future? ");
     }
-    public void GetRandomPrompt1()
+    
+    public void Ponder()
     {
-        Random randomGenerator = new Random();
-        int num = randomGenerator.Next(0,_prompt.Count);
-        question = _prompt[num];
-        Console.WriteLine(question);
+        Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
+        Console.Write("You may begin in: ");
+        Countdown();
+        Console.Clear();
     }
-    public void GetRandomPrompt2()
+    public void Complete()
     {
-       Random randomGenerator = new Random();
-        int num = randomGenerator.Next(0,_prompt1.Count);
-        question2 = _prompt1[num];
-        Console.WriteLine(question2);
-    } 
-    public void Display()
-    {
-        Console.WriteLine("This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you ahve and how you can use it in other aspects of your life.");
-        
+        Console.WriteLine($"\nYou have completed {_input} seconds of the {_type} Activity");
+    }
     }
     
-    
-    }
-    
-    // public void RandomPrompt()
-    // {
-    //     Console.WriteLine(question);
-    // }
-    
+

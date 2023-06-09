@@ -1,7 +1,26 @@
-public class Breathing
-{
-    public void Display()
+public class Breathing : Activity
+{   
+    public Breathing(string type, string desc, string end) : base(type, end, desc)
     {
-        Console.WriteLine("This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.");
+        _input = 0;
+    }   
+    public void BreathingIn()
+    {
+        Console.Write("\nBreath in...");
+        Countdown();
+        Console.Write("\nNow Breath out...");
+        Countdown();
     }
+
+
+    public void Exercise()
+    {
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_input);
+        while (DateTime.Now < endTime)
+        {
+            BreathingIn();
+        }
+    }
+    
 }
