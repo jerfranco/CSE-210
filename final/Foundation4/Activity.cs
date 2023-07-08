@@ -1,46 +1,22 @@
 public abstract class Activity
 {
     private string _date;
-    public int _length;
-    public double _distance;
-    public double _speed;
     private string _activityType;
-    public int _minutes;
-    public double pace;
+    private int _minutes;
 
-    // public Activity(string activityType, string date, int length, int distance, float speed)
-    // {
-    //     _activityType = activityType;
-    //     _date = date;
-    //     _length = length;
-    //     _distance = distance;
-    //     _speed = speed;
-    // }
-
-    public Activity(string activityType, string date, int minutes, int distance)
+    public Activity(string activityType, string date, int minutes)
     {
         _activityType = activityType;
         _date = date;
         _minutes = minutes;
-        _distance = distance;
     }
     
-    public virtual double Distance()
-    {
-        return _distance;
-    }
+    public abstract double Distance();
 
-    public virtual double Speed()
+    public abstract double Speed();
+    public abstract double Pace();
+    public void GetSummary()
     {
-        return _speed;
-    }
-    public virtual double Pace()
-    {
-        pace = _minutes / _distance;
-        return pace;
-    }
-    public string GetSummary()
-    {
-        return $"{_date} ({_minutes} min) - Distance {_distance}, Speed {_speed} mph, Pace: {pace} min per mile";
+        Console.WriteLine($"{_date} {_activityType} ({_minutes} min) - Distance:{Distance()} miles, Speed:{Speed()} mph, Pace: {Pace()} min per mile");
     }
 }
