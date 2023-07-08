@@ -1,38 +1,46 @@
 public abstract class Activity
 {
-    private int _date;
+    private string _date;
     public int _length;
-    public int _distance;
-    public float _speed;
+    public double _distance;
+    public double _speed;
     private string _activityType;
-    private int speed;
-    private int pace;
+    public int _minutes;
+    public double pace;
 
-    public Activity(string activityType, int date, int length, int distance, float speed)
+    // public Activity(string activityType, string date, int length, int distance, float speed)
+    // {
+    //     _activityType = activityType;
+    //     _date = date;
+    //     _length = length;
+    //     _distance = distance;
+    //     _speed = speed;
+    // }
+
+    public Activity(string activityType, string date, int minutes, int distance)
     {
         _activityType = activityType;
         _date = date;
-        _length = length;
+        _minutes = minutes;
         _distance = distance;
-        _speed = speed;
     }
     
-    public virtual int Distance()
+    public virtual double Distance()
     {
         return _distance;
     }
-    public virtual float Speed()
+
+    public virtual double Speed()
     {
-        speed = (_distance / _length) * 60;
-        return speed;
+        return _speed;
     }
-    public virtual int Pace()
+    public virtual double Pace()
     {
-        pace = _length / _distance;
+        pace = _minutes / _distance;
         return pace;
     }
     public string GetSummary()
     {
-        return $"{_date} ({_length} min) - Distance {_distance}, Speed {speed} mph, Pace: {pace} min per mile";
+        return $"{_date} ({_minutes} min) - Distance {_distance}, Speed {_speed} mph, Pace: {pace} min per mile";
     }
 }

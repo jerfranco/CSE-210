@@ -3,8 +3,8 @@
 
     public string _name;
     public int _id;
-    private int _price;
-    private int _quantity;
+    public int _price;
+    public int _quantity;
     public float _total;
 
 
@@ -26,17 +26,6 @@
     {
         _total = _price * _quantity;
         return _total;
-    }
-
-    public void Order()
-    {
-        //total.Add(_total);
-    }
-
-
-    public void Display()
-    {
-        Console.WriteLine($"Name: {_name}, quantity: {_quantity}");
     }
 
 }

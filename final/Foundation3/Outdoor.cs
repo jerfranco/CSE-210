@@ -1,7 +1,7 @@
 public class Outdoor : Event
 {
     private string _weather;
-    public Outdoor(string weather, string eventType, string title, string desc, string date, string time, string address) : base(eventType, title, desc, date, time, address)
+    public Outdoor(string weather, string eventType, string title, string desc, string date, string time) : base(eventType, title, desc, date, time)
     {
         _weather = weather;
     }

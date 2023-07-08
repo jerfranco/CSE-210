@@ -1,25 +1,15 @@
 public class Bicycles : Activity
 {
 
-    public Bicycles(string activityType, int speed, int date, int length, int distance) : base(activityType, speed, date, length, distance)
+    int _speed1;
+    public Bicycles(string activityType, string date, int minutes, int distance, int speed) : base(activityType, date, minutes, distance)
     {
+        _speed1 = speed;
     }
 
-
-    public override int Distance()
+    public override double Speed()
     {
-        return _distance;
-    }
-
-    public override float Speed()
-    {
-        _speed = _distance / _length;
+        _speed = _distance / _minutes;
         return _speed;
     }
-
-    public override int Pace()
-    {
-        throw new NotImplementedException();
-    }
-
 }

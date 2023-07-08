@@ -10,6 +10,14 @@ public class Order
     {
         products.Add(product);
     }
+
+    public void displayProduct()
+    {
+        foreach (Product product in products)
+        {
+            Console.WriteLine($"Product name: {product._name}\nQuantity: {product._quantity}\nPrice: ${product._price}");
+        }
+    }
     
     
     public void priceList(float _total)
@@ -19,7 +27,7 @@ public class Order
 
     public void Tot()
     {
-        Console.WriteLine(order.Sum());
+        Console.WriteLine($"Total price after shipping fee: ${order.Sum()}");
     }
 
     public void getCountry(string _country)
@@ -38,11 +46,12 @@ public class Order
     
     public string packingLabel(string _name, int _id)
     {
-        return $"Packing Label:\nName: {_name}, product ID: {_id}";
+        return $"Name: {_name}, product ID: {_id}";
     }
     public string shippingLabel(string _name, Address address)
     {
         return $"Shipping Label:\nName: {_name}\nAddress: {address._address},\n{address._city}, {address._state}, {address._country}";
     }
+
     
 }

@@ -11,6 +11,11 @@ public class Customer
     {
         return _name;
     }
+
+    public void displayName()
+    {
+        Console.WriteLine($"Customer Name: {_name}");
+    }
     
 
     
